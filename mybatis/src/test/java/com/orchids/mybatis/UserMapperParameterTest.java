@@ -19,7 +19,7 @@ public class UserMapperParameterTest {
     public void testGetUserByUsername(){
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapperParameter mapper = sqlSession.getMapper(UserMapperParameter.class);
-        User user = mapper.getUserByUsername("admin");
+        User user = mapper.getUserByUsername("haha");
         System.out.println(user);
     }
 
@@ -46,7 +46,7 @@ public class UserMapperParameterTest {
     public void testInsertUser(){
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapperParameter mapper = sqlSession.getMapper(UserMapperParameter.class);
-        User user = new User(null, "root", "123123", 33, "女", "123@qq.com");
+        User user = new User(null, "rot", "123", 33, "女", "123@qq.com");
         mapper.insertUser(user);
     }
 
