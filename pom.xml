@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mybatis</module>
+        <module>mybatisCache</module>
     </modules>
     <!--统一jar包管理-->
     <properties>
@@ -22,6 +23,8 @@
         <lombok.version>1.18.28</lombok.version>
         <hutool.version>5.1.0</hutool.version>
         <log4j.version>1.2.17</log4j.version>
+        <caches.version>1.2.1</caches.version>
+        <logback.version>1.2.3</logback.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -29,6 +32,11 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.caches</groupId>
+                <artifactId>mybatis-ehcache</artifactId>
+                <version>${caches.version}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
@@ -55,6 +63,11 @@
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

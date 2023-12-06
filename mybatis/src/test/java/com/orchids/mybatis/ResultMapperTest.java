@@ -12,7 +12,7 @@ import org.junit.Test;
  * @Auther: QWH
  * @Date: 2023-12-06-15:13
  */
-public class ResultMapper {
+public class ResultMapperTest {
     @Test
     public void testGetEmpByEmpId(){
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();

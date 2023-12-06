@@ -22,12 +22,5 @@ public class Emp {
 
     private String gender;
 
-    private Dept dept;
 
-    public Emp(Integer empId, String empName, Integer age, String gender) {
-        this.empId = empId;
-        this.empName = empName;
-        this.age = age;
-        this.gender = gender;
-    }
 }

@@ -79,10 +79,10 @@
     <!--Emp getEmpAndDeptByEmpId(@Param("empId") Integer empId);-->
     <select id="getEmpAndDeptByEmpId" resultMap="empAndDeptResultMap">
         select
-            emp.*,t_dept.*
+            emp.*,dept.*
         from emp
-                 left join t_dept
-                           on emp.dept_id = t_dept.dept_id
+                 left join dept
+                           on emp.dept_id = dept.dept_id
         where emp.emp_id = #{empId}
     </select>
 
@@ -99,8 +99,9 @@
             fetchType="eager(立即加载)|lazy(延迟加载)"
         -->
         <association property="dept" fetchType="eager"
-                     select="com.atguigu.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
-                     column="dept_id"></association>
+                     select="com.orchids.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
+                     column="dept_id">
+        </association>
     </resultMap>
 
     <!--Emp getEmpAndDeptByStepOne(@Param("empId") Integer empId);-->

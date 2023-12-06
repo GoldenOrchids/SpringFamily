@@ -28,8 +28,8 @@
     <select id="getDeptAndEmpByDeptId" resultMap="deptAndEmpResultMap">
         SELECT *
         FROM dept
-                 LEFT JOIN t_emp
-                           ON dept.dept_id = t_emp.dept_id
+                 LEFT JOIN emp
+                           ON dept.dept_id = emp.dept_id
         WHERE dept.dept_id = #{deptId}
     </select>
 
