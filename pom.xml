@@ -11,6 +11,8 @@
     <modules>
         <module>mybatis</module>
         <module>mybatisCache</module>
+        <module>mybatisAuto</module>
+        <module>spring</module>
     </modules>
     <!--统一jar包管理-->
     <properties>
@@ -25,9 +27,16 @@
         <log4j.version>1.2.17</log4j.version>
         <caches.version>1.2.1</caches.version>
         <logback.version>1.2.3</logback.version>
+        <pagehelper.version>5.2.0</pagehelper.version>
+        <spring-context.version>5.3.1</spring-context.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-context.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
@@ -68,6 +77,11 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
