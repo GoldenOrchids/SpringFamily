@@ -10,5 +10,26 @@
         class：设置bean对象所对应的类型
     -->
     <bean id="HelloWorld" class="com.orchids.spring.pojo.HelloWorld"></bean>
+    <!--
+    student的构造方法只有全参和空参的构造方法
+     当bean参数是全参则是构造方法注入其他的参数则是setter方法
+     依赖注入依靠的是函数的构造方法-->
+    <bean id="studentId" class="com.orchids.spring.pojo.Student">
+        <property name="age" value="12"/>
+        <property name="id" value="1"/>
+        <property name="name" value="qwe"/>
+        <property name="sex" value="男"/>
+    </bean>
+    <!--setter注入-->
+    <bean id="studentSet" class="com.orchids.spring.pojo.Student">
+        <property name="age" value="12"/>
+        <property name="id" value="1"/>
+        <property name="name" value="qwe"/>
+    </bean>
+    <bean id="studentGZQ" class="com.orchids.spring.pojo.Student">
+        <constructor-arg name="id" value="123"/>
+        <constructor-arg name="name" value="123"/>
+    </bean>
+
 
 </beans>

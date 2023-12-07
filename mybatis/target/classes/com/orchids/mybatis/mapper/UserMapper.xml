@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口的地址com开始到接口名UserMapper-->
+<mapper namespace="com.orchids.mybatis.mapper.UserMapper">
+    <!--sql语句-->
+    <!--int insertUser-->
+    <insert id="insertUser">
+        insert into user values (null,'admin','123456',23,'男','12345@qq.com')
+    </insert>
+    <!--int deleteUser();-->
+    <delete id="deleteUser">
+        delete from user where id = 5
+    </delete>
+    <!--int updateUser();-->
+    <update id="updateUser">
+        update user set username='ybc',password='123' where id = 4
+    </update>
+    <!--User getUserById();-->
+    <select id="getUserById" resultType="com.orchids.mybatis.pojo.User">
+        select * from user where id = 2
+    </select>
+    <!--List<User> getUserList();-->
+    <select id="getUserList" resultType="com.orchids.mybatis.pojo.User">
+        select * from user
+    </select>
+
+
+</mapper>

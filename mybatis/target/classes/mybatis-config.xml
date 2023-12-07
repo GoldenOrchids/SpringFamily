@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="jdbc.properties"/>
+<!--    <settings>
+        &lt;!&ndash;将表中字段的下划线自动转换为驼峰&ndash;&gt;
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        &lt;!&ndash;开启延迟加载&ndash;&gt;
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>-->
+    <typeAliases>
+        <!--     从com到user.java文件的前一个位置 就是装pojo的包   -->
+        <package name="com.orchids.mybatis.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--     从com到mapper.java文件的前一个位置   -->
+        <package name="com.orchids.mybatis.mapper"/>
+    </mappers>
+</configuration>
+
