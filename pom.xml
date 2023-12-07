@@ -13,6 +13,7 @@
         <module>mybatisCache</module>
         <module>mybatisAuto</module>
         <module>spring</module>
+        <module>springAnnotate</module>
     </modules>
     <!--统一jar包管理-->
     <properties>
@@ -29,6 +30,7 @@
         <logback.version>1.2.3</logback.version>
         <pagehelper.version>5.2.0</pagehelper.version>
         <spring-context.version>5.3.1</spring-context.version>
+        <druid.version>1.0.31</druid.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -82,6 +84,11 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

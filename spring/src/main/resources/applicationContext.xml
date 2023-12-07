@@ -8,27 +8,171 @@
         属性：
         id：bean的唯一标识，不能重复
         class：设置bean对象所对应的类型
+        property：通过成员变量的set方法进行赋值
+        name：设置需要赋值的属性名（和set方法有关）
+        value：设置为属性所赋的值
     -->
     <bean id="HelloWorld" class="com.orchids.spring.pojo.HelloWorld"></bean>
-    <!--
-    student的构造方法只有全参和空参的构造方法
-     当bean参数是全参则是构造方法注入其他的参数则是setter方法
-     依赖注入依靠的是函数的构造方法-->
-    <bean id="studentId" class="com.orchids.spring.pojo.Student">
-        <property name="age" value="12"/>
-        <property name="id" value="1"/>
-        <property name="name" value="qwe"/>
-        <property name="sex" value="男"/>
-    </bean>
+<!--    /*#####################################################################################################*/-->
     <!--setter注入-->
-    <bean id="studentSet" class="com.orchids.spring.pojo.Student">
+    <bean id="studentOne" class="com.orchids.spring.pojo.Student">
         <property name="age" value="12"/>
-        <property name="id" value="1"/>
         <property name="name" value="qwe"/>
     </bean>
-    <bean id="studentGZQ" class="com.orchids.spring.pojo.Student">
-        <constructor-arg name="id" value="123"/>
+    <!--构造器注入-->
+    <bean id="studentTwo" class="com.orchids.spring.pojo.Student">
+        <constructor-arg name="id" value="22222222"/>
         <constructor-arg name="name" value="123"/>
+    </bean>
+<!--    /*##################特殊情况#########################################################*/-->
+
+    <bean id="studentThree" class="com.orchids.spring.pojo.Student">
+        <property name="id" value="33333333"></property>
+        <!--
+            <：&lt;
+            >：&gt;
+            CDATA节其中的内容会原样解析<![CDATA[...]]>
+            CDATA节是xml中一个特殊的标签，因此不能写在一个属性中
+        -->
+        <!--<property name="sname" value="&lt;王五&gt;"></property>-->
+        <property name="name">
+            <value><![CDATA[<王五>]]></value>
+        </property>
+        <property name="sex">
+            <null />
+        </property>
+    </bean>
+    <!--############################################-为类类型属性赋值##############################################  -->
+    <!--引用外部已声明的bean-->
+    <bean id="studentFour" class="com.orchids.spring.pojo.Student">
+        <property name="id" value="444444444"/>
+        <property name="name" value="哇哈哈"/>
+        <property name="age" value="18"/>
+        <property name="sex" value="女"/>
+        <property name="clazz" ref="clazz"/>
+    </bean>
+    <bean id="clazz" class="com.orchids.spring.pojo.Clazz">
+        <property name="cid" value="1111111"/>
+        <property name="cname" value="嘿嘿 嘿 嘿嘿"/>
+    </bean>
+
+    <!--内部bean-->
+    <bean id="studentFive" class="com.orchids.spring.pojo.Student">
+        <property name="id" value="55555555"/>
+        <property name="name" value="哇哈哈"/>
+        <property name="age" value="18"/>
+        <property name="sex" value="女"/>
+        <property name="clazz">
+            <bean id="clazzInner" class="com.orchids.spring.pojo.Clazz">
+                <property name="cid" value="2222222"/>
+                <property name="cname" value="嗯哼嗯很嗯嗯"/>
+            </bean>
+        </property>
+    </bean>
+    <!--联级处理bean-->
+    <bean id="studentSix" class="com.orchids.spring.pojo.Student">
+        <property name="id" value="66666666"/>
+        <property name="name" value="呀吼呀吼"/>
+        <property name="age" value="00000"/>
+        <property name="sex" value="男"/>
+        <property name="clazz" ref="clazz"></property>
+        <property name="clazz.cid" value="33333333"/>
+        <property name="clazz.cname" value="嘴强王者"/>
+    </bean>
+<!--    ##################################为数组类型属性赋值#################################################-->
+    <bean id="studentArray" class="com.orchids.spring.pojo.Student">
+        <property name="id" value="123456"/>
+        <property name="name" value="数组"/>
+        <property name="age" value="111111111"/>
+        <property name="sex" value="男"/>
+        <property name="clazz" >
+            <bean id="clazzInner" class="com.orchids.spring.pojo.Clazz">
+                <property name="cid" value="4444444"/>
+                <property name="cname" value="亚麻跌"/>
+            </bean>
+        </property>
+        <property name="hobbies">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+    </bean>
+    <!--    ##################################为集合类型属性赋值#################################################-->
+    <bean id="clazzOne" class="com.orchids.spring.pojo.Clazz">
+        <property name="cid" value="55555555"/>
+        <property name="cname" value="map班级"/>
+        <property name="students">
+            <list>
+                <ref bean="studentOne"/>
+                <ref bean="studentTwo"/>
+                <ref bean="studentThree"/>
+                <ref bean="studentFour"/>
+            </list>
+        </property>
+    </bean>
+<!-- ###############################为Map集合类型属性赋值#########################################################-->
+    <bean id="teacherOne" class="com.orchids.spring.pojo.Teacher">
+        <property name="tid" value="111111111"/>
+        <property name="Tname" value="老司机1"/>
+    </bean>
+    <bean id="teacherTwo" class="com.orchids.spring.pojo.Teacher">
+        <property name="tid" value="2222222"/>
+        <property name="Tname" value="老司机2"/>
+    </bean>
+    <bean id="teacherThree" class="com.orchids.spring.pojo.Teacher">
+        <property name="tid" value="333333"/>
+        <property name="Tname" value="老司机3"/>
+    </bean>
+    <bean id="studentMap" class="com.orchids.spring.pojo.Student" >
+        <property name="id" value="1212"/>
+        <property name="name" value="studentmap"/>
+        <property name="age" value="18"/>
+        <property name="sex" value="男"/>
+        <property name="clazz" ref="clazzOne"/>
+        <property name="hobbies">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="teacherMap">
+            <map>
+                <entry key="10086" value-ref="teacherOne"></entry>
+                <entry key="10010" value-ref="teacherTwo"></entry>
+                <entry key="10000" value-ref="teacherThree"></entry>
+            </map>
+        </property>
+<!--        <property name="teacherMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>
+                            1
+                        </value>
+                    </key>
+                    <ref bean="teacherOne"/>
+                </entry>
+                <entry>
+                    <key>
+                        <value>
+                            2
+                        </value>
+                    </key>
+                    <ref bean="teacherTwo"/>
+                </entry>
+                <entry>
+                    <key>
+                        <value>
+                            3
+                        </value>
+                    </key>
+                    <ref bean="teacherThree"/>
+                </entry>
+            </map>
+        </property>-->
     </bean>
 
 

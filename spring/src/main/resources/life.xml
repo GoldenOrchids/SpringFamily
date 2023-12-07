@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- scope属性：取值singleton（默认值），bean在IOC容器中只有一个实例，IOC容器初始化时创建对象 -->
+    <!-- scope属性：取值prototype，bean在IOC容器中可以有多个实例，getBean()时创建对象 -->
+    <bean id="life" class="com.orchids.spring.pojo.User" scope="prototype"/>
+    <!-- 使用init-method属性指定初始化方法 -->
+    <!-- 使用destroy-method属性指定销毁方法 -->
+    <bean id="userLife" class="com.orchids.spring.pojo.User" scope="prototype" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="id" value="1001"></property>
+        <property name="username" value="admin"></property>
+        <property name="password" value="123456"></property>
+        <property name="age" value="23"></property>
+    </bean>
+    <!--#################beanfactory###########################-->
+    <bean id="userFactory" class="com.orchids.spring.pojo.User"/>
+</beans>
