@@ -12,6 +12,7 @@
         <module name="springAnnotate" />
         <module name="mybatis" />
         <module name="mybatisCache" />
+        <module name="springAop" />
       </profile>
     </annotationProcessing>
   </component>
