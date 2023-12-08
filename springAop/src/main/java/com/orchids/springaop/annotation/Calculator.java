@@ -1,4 +1,4 @@
-package com.orchids.springaop.xml;
+package com.orchids.springaop.annotation;
 
 /**
  * @Auther: QWH

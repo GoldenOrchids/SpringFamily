@@ -1,8 +1,9 @@
-package com.orchids.springaop.xml;
+package com.orchids.springaop.annotation;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -12,7 +13,15 @@ import java.util.Arrays;
  * @Date: 2023-12-08-8:45
  */
 @Component
+@Aspect //将当前组件标识为切面
 public class LoggerAspect {
+
+    @Pointcut("execution(* com.orchids.springaop.annotation.CalculatorImpl.*(..))")
+    public void pointCut(){}
+
+    //@Before("execution(public int com.atguigu.spring.aop.annotation.CalculatorImpl.add(int, int))")
+    //@Before("execution(* com.atguigu.spring.aop.annotation.CalculatorImpl.*(..))")
+    @Before("pointCut()")
     public void beforeAdviceMethod(JoinPoint joinPoint) {
         //获取连接点所对应方法的签名信息
         Signature signature = joinPoint.getSignature();
@@ -21,6 +30,7 @@ public class LoggerAspect {
         System.out.println("LoggerAspect，方法："+signature.getName()+"，参数："+ Arrays.toString(args));
     }
 
+    @After("pointCut()")
     public void afterAdviceMethod(JoinPoint joinPoint){
         //获取连接点所对应方法的签名信息
         Signature signature = joinPoint.getSignature();
@@ -32,6 +42,7 @@ public class LoggerAspect {
      * 只需要通过@AfterReturning注解的returning属性
      * 就可以将通知方法的某个参数指定为接收目标对象方法的返回值的参数
      */
+    @AfterReturning(value = "pointCut()", returning = "result")
     public void afterReturningAdviceMethod(JoinPoint joinPoint, Object result){
         //获取连接点所对应方法的签名信息
         Signature signature = joinPoint.getSignature();
@@ -43,12 +54,14 @@ public class LoggerAspect {
      * 只需要通过AfterThrowing注解的throwing属性
      * 就可以将通知方法的某个参数指定为接收目标对象方法出现的异常的参数
      */
+    @AfterThrowing(value = "pointCut()", throwing = "ex")
     public void afterThrowingAdviceMethod(JoinPoint joinPoint, Throwable ex){
         //获取连接点所对应方法的签名信息
         Signature signature = joinPoint.getSignature();
         System.out.println("LoggerAspect，方法："+signature.getName()+"，异常："+ex);
     }
 
+    @Around("pointCut()")
     //环绕通知的方法的返回值一定要和目标对象方法的返回值一致
     public Object aroundAdviceMethod(ProceedingJoinPoint joinPoint){
         Object result = null;
@@ -65,4 +78,5 @@ public class LoggerAspect {
         }
         return result;
     }
+
 }
