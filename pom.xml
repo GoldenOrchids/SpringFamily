@@ -15,6 +15,7 @@
         <module>spring</module>
         <module>springAnnotate</module>
         <module>springAop</module>
+        <module>springReactive</module>
     </modules>
     <!--统一jar包管理-->
     <properties>

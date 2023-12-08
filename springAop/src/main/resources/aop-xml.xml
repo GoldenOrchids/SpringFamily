@@ -6,11 +6,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--扫描组件-->
-    <context:component-scan base-package="com.orchids.springaop.annotation"></context:component-scan>
+    <context:component-scan base-package="com.orchids.springaop.xml"></context:component-scan>
 
     <aop:config>
         <!--设置一个公共的切入点表达式-->
-        <aop:pointcut id="pointCut" expression="execution(* com.orchids.springaop.annotation.CalculatorImpl.*(..))"/>
+        <aop:pointcut id="pointCut" expression="execution(* com.orchids.springaop.xml.CalculatorImpl.*(..))"/>
         <!--将IOC容器中的某个bean设置为切面-->
         <aop:aspect ref="loggerAspect">
             <aop:before method="beforeAdviceMethod" pointcut-ref="pointCut"></aop:before>

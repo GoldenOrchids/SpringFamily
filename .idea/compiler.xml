@@ -8,11 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring" />
-        <module name="mybatisAuto" />
-        <module name="springAnnotate" />
         <module name="mybatis" />
         <module name="mybatisCache" />
         <module name="springAop" />
+        <module name="mybatisAuto" />
+        <module name="springAnnotate" />
+        <module name="springReactive" />
       </profile>
     </annotationProcessing>
   </component>
