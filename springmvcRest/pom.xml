@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>springmvc</artifactId>
+    <artifactId>springmvcRest</artifactId>
     <packaging>war</packaging>
 
     <properties>
@@ -50,6 +50,7 @@
             <artifactId>thymeleaf-spring5</artifactId>
             <version>3.0.12.RELEASE</version>
         </dependency>
+
     </dependencies>
 
 </project>

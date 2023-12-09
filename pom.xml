@@ -17,6 +17,8 @@
         <module>springAop</module>
         <module>springReactive</module>
         <module>springmvc</module>
+        <module>springmvcRest</module>
+        <module>springmvcAjax</module>
     </modules>
     <!--统一jar包管理-->
     <properties>

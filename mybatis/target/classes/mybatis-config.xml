@@ -5,12 +5,14 @@
 <configuration>
 
     <properties resource="jdbc.properties"/>
-<!--    <settings>
-        &lt;!&ndash;将表中字段的下划线自动转换为驼峰&ndash;&gt;
+    <settings>
+        <!--将下划线映射为驼峰-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-        &lt;!&ndash;开启延迟加载&ndash;&gt;
+        <!--开启延迟加载-->
         <setting name="lazyLoadingEnabled" value="true"/>
-    </settings>-->
+        <!--按需加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
     <typeAliases>
         <!--     从com到user.java文件的前一个位置 就是装pojo的包   -->
         <package name="com.orchids.mybatis.pojo"/>

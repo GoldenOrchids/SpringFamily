@@ -11,8 +11,11 @@
         <module name="mybatis" />
         <module name="mybatisCache" />
         <module name="springAop" />
+        <module name="springmvcRest" />
         <module name="mybatisAuto" />
         <module name="springAnnotate" />
+        <module name="springmvcAjax" />
+        <module name="springmvc" />
         <module name="springReactive" />
       </profile>
     </annotationProcessing>

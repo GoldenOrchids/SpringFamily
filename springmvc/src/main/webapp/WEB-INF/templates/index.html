@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymelreaf.org">
+<head>
+    <meta charset="UTF-8">
+    <titleh>hello world</titleh>
+</head>
+<body>
+    <h5>index.html</h5>
+    <a th:href="@{/hello}">thymeleaf语法测试SpringMVCthymeleaf</a> <!--缺什么补什么thymeleaf-->
+    <br/>
+    <a href="/hello">error测试绝对路径</a>
+    <br/>
+    <a href="/springmvc/hello">ok测试完整的绝对路径</a>
+    <br/>
+    <h5>类上添加@RequestMapping("/hellomvc")</h5>
+    <a th:href="@{/hellomvc/testRequestMapping}">thymeleaf语法类上添加@RequestMapping测试</a>
+    <br/>
+    <a href="/hellomvc/testRequestMapping">error类上添加@RequestMapping测试</a>
+    <h5>@RequestMapping注解的value属性</h5>
+    <br/>
+    <h5>多个请求指向同一个地址/123 --->love /abc --->love</h5>
+    <a th:href="@{/123}">thymeleaf语法多个请求指向同一个地址/123 --->love</a>
+    <br/>
+    <a th:href="@{/abc}">thymeleaf语法多个请求指向同一个地址/abc --->love</a>
+    <br/>
+    <a href="/123">error多个请求指向同一个地址</a>
+    <br/>
+    <a href="/abc">error多个请求指向同一个地址</a>
+    <br/>
+    <h5>请求方法@RequestMapping注解的method属性</h5><br/>
+    <h5>方式一get 或post请求</h5>
+    <form th:action="@{/methodPost}" method="post">
+        <input type="submit" value="Post">
+    </form>
+    <br/>
+    <form th:action="@{/methodGet}" method="get">
+        <input type="submit" value="Get">
+    </form>
+    <br/>
+    <h5>方式二get 或post请求</h5>
+    <form th:action="@{/Postmethod}" method="post">
+        <input type="submit" value="Post">
+    </form>
+    <br/>
+    <form th:action="@{/Getmethod}" method="get">
+        <input type="submit" value="Get">
+    </form>
+    <br/>
+    <h5>@RequestMapping注解的params属性</h5><br/>
+    <a th:href="@{/params}">username一定要有</a>
+
+<!--    <h5>SpringMVC支持路径中的占位符</h5>
+    <a th:href="@{/rest/1/admin}">测试路径中的占位符1</a><br/>
+    <a th:href="@{/rest}">测试路径中的占位符</a>-->
+    <hr>
+    <h5>通过POJO获取请求参数</h5>
+    <form th:action="@{/param/pojo}" method="post">
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        <input type="submit" value="登录"><br>
+    </form>
+    <hr>
+    <a th:href="@{/test/mav}">测试通过ModelAndView向请求域共享数据</a><br>
+    <a th:href="@{/test/model}">测试通过Model向请求域共享数据</a><br>
+    <a th:href="@{/test/modelMap}">测试通过ModelMap向请求域共享数据</a><br>
+    <a th:href="@{/test/map}">测试通过map向请求域共享数据</a><br>
+    <a th:href="@{/test/session}">测试向会话域共享数据</a><br>
+    <a th:href="@{/test/application}">测试向应用域共享数据</a><br>
+    <hr>
+    <a th:href="@{/test/view/thymeleaf}">测试SpringMVC的视图ThymeleafView</a><br>
+    <a th:href="@{/test/view/forward}">测试SpringMVC的视图InternalResourceView</a><br>
+    <a th:href="@{/test/view/redirect}">测试SpringMVC的视图RedirectView</a><br>
+
+
+</body>
+</html>
