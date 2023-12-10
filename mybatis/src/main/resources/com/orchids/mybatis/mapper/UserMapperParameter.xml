@@ -7,19 +7,19 @@
 
     <!--sql语句-->
     <!--User getUserByUsername(String username);-->
-    <select id="getUserByUsername" resultType="User">
+    <select id="getUserByUsername" resultType="com.orchids.mybatis.pojo.User">
         <!--select * from t_user where username = #{username}-->
         select * from user where username = '${username}'
     </select>
 
     <!--User checkLogin(String username, String password);-->
-    <select id="checkLogin" resultType="User">
+    <select id="checkLogin" resultType="com.orchids.mybatis.pojo.User">
         <!--select * from t_user where username = #{param1} and password = #{param2}-->
         select * from user where username = '${param1}' and password = '${param2}'
     </select>
 
     <!--User checkLoginByMap(Map<String, Object> map);-->
-    <select id="checkLoginByMap" resultType="User">
+    <select id="checkLoginByMap" resultType="com.orchids.mybatis.pojo.User">
         select * from user where username = #{username} and password = #{password}
     </select>
 
@@ -29,7 +29,7 @@
     </insert>
 
     <!--User checkLoginByParam(@Param("username") String username, @Param("password") String password);-->
-    <select id="checkLoginByParam" resultType="User">
+    <select id="checkLoginByParam" resultType="com.orchids.mybatis.pojo.User">
         select * from user where username = #{username} and password = #{password}
     </select>
 

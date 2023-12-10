@@ -4,7 +4,9 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/springmvc" />
     <file type="web" url="file://$PROJECT_DIR$/springmvcAjax" />
+    <file type="web" url="file://$PROJECT_DIR$/springmvcAnnotation" />
     <file type="web" url="file://$PROJECT_DIR$/springmvcRest" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

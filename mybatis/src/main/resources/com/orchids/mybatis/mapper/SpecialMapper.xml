@@ -5,7 +5,7 @@
 <!--接口的地址com开始到接口名UserMapper-->
 <mapper namespace="com.orchids.mybatis.mapper.SpecialMapper">
     <!--List<User> getUserByLike(@Param("mohu") String mohu);-->
-    <select id="getUserByLike" resultType="User">
+    <select id="getUserByLike" resultType="com.orchids.mybatis.pojo.User">
         <!--select * from t_user where username like '%${mohu}%'-->
         <!--select * from t_user where username like concat('%',#{mohu},'%')-->
         select * from user where username like "%"#{mohu}"%"
@@ -17,7 +17,7 @@
     </delete>
 
     <!--List<User> getUserList(@Param("tableName") String tableName);-->
-    <select id="getUserList" resultType="User">
+    <select id="getUserList" resultType="com.orchids.mybatis.pojo.User">
         select * from ${tableName}
     </select>
 

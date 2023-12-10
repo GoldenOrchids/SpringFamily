@@ -6,12 +6,12 @@
 <mapper namespace="com.orchids.mybatis.mapper.SelectMapper">
     <!--sql语句-->
     <!--User getUserById(@Param("id") Integer id);-->
-    <select id="getUserById" resultType="User">
+    <select id="getUserById" resultType="com.orchids.mybatis.pojo.User">
         select * from user where id = #{id}
     </select>
 
     <!--List<User> getAllUser();-->
-    <select id="getAllUser" resultType="User">
+    <select id="getAllUser" resultType="com.orchids.mybatis.pojo.User">
         select * from user
     </select>
 
